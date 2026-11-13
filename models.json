@@ -1,0 +1,5 @@
+[
+  {"name":"qwen2.5:1.5b","task_types":["extraction"],"priority":0},
+  {"name":"qwen2.5-coder:1.5b","task_types":["coding"],"priority":1},
+  {"name":"llama3.2:1b","task_types":["reasoning"],"priority":2}
+]
