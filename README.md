@@ -24,3 +24,9 @@ Edit `models.json` to list models available locally. Requests default to http://
 
 ## Known limitations
 The router does not yet measure quality against a labelled dataset, validate generated JSON, or optimize a learned policy. Hardware latency and accuracy improvements have not been measured. Do not claim 20% savings until benchmarked.
+
+## Constrained routing optimization extension
+
+`modelpath.optimizer` includes `ModelBenchmark` and `choose_model(...)`: select the minimum measured P50-latency model for a task **subject to** held-out accuracy and memory thresholds. It fails explicitly when no model satisfies the requirements. Run `pytest -q tests/test_optimizer.py`.
+
+This component is not yet wired into the existing live Ollama routing command. It consumes benchmark observations supplied by callers; no latency or cost saving has been experimentally demonstrated. **Planned next:** connect to measured routing data, quality-validating schema tests, cross-model comparisons, optional C++ microbenchmark, and hardware-specific profiling.
